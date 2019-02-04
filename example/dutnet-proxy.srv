@@ -1,0 +1,23 @@
+#!/bin/srvman
+---
+description: dutnet port forward
+name:        dutnet-proxy
+vars:
+  - name:    local_port
+    type:    ip-port
+    default: 9095
+  - name:    remote_ip
+    type:    ip-address
+    default: 10.152.187.10
+  - name:    remote_port
+    type:    ip-address
+    default: 80
+service:
+  type:         simple
+  auto-daemon:  no
+  auto-pidfile: no
+  program:      /usr/bin/socat
+  args:         "TCP4-LISTEN:${vars:local_port},fork TCP4:${vars:remote_ip}:${vars:remote_port}"
+  reload-type:  restart
+want:
+  - syslog
