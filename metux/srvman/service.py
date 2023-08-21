@@ -1,7 +1,7 @@
 
-from service_simple import ServiceSimple
-from config import Config
-import term
+from metux.srvman.service_simple import ServiceSimple
+from metux.srvman.config import Config
+from metux.srvman import term
 
 class SrvRunner:
     def __alloc(self, cf):

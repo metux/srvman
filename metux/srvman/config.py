@@ -4,7 +4,7 @@ class Config:
     def __init__(self, fn):
         with open(fn, 'r') as stream:
             try:
-                self.cf = yaml.load(stream)
+                self.cf = yaml.load(stream, Loader=yaml.SafeLoader)
             except yaml.YAMLError as exc:
                 print(exc)
 
@@ -44,7 +44,7 @@ class Config:
 
     def get_service_args(self):
         if 'args' not in self.cf['service']:
-            print "service missing args"
+            print("service missing args")
             return []
 
         l = []

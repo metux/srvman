@@ -1,6 +1,6 @@
 
 import subprocess
-from service_base import ServiceBase
+from metux.srvman.service_base import ServiceBase
 
 class ServiceSimple(ServiceBase):
     def __init__(self, cf):

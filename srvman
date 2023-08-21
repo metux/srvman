@@ -1,14 +1,14 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import sys
 from metux.srvman import service
 
 if len(sys.argv) < 2:
-    print "missing service description file"
+    print("missing service description file")
     sys.exit(1)
 
 if len(sys.argv) < 3:
-    print sys.argv[1]+": missing action"
+    print(sys.argv[1]+": missing action")
     sys.exit(2)
 
 exit(service.load(sys.argv[1]).run(sys.argv[2]))
